@@ -37,8 +37,6 @@ public class MyInputUser : MonoBehaviour
         {
             timeSinceJumpInput = 10; // Set to a big number
             playerBody.linearVelocityY = JumpForce;
-
-            Debug.Log("Yay!");
         }
 
         timeSinceJumpInput += Time.deltaTime;

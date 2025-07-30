@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8610065296396041499}
   - component: {fileID: 5563451708724840351}
   - component: {fileID: 9195868526558250672}
-  m_Layer: 0
+  - component: {fileID: 7650722260882247514}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -121,6 +122,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.65112674, y: 0.45970947}
   m_EdgeRadius: 0.15
+--- !u!114 &7650722260882247514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746730915907415914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391cd214465d1c949bca9cc5272196a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5609634980373471744
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +145,7 @@ GameObject:
   - component: {fileID: 1597983761821429855}
   - component: {fileID: 6197212740915892421}
   - component: {fileID: 2653996596270199767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
