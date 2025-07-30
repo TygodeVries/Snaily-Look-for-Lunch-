@@ -5,6 +5,8 @@ public class MyInputManager : MonoBehaviour
 {
     [SerializeField]
     public GameObject playerObject;
+
+    public float round_time = 10;
     class MyInputs
     {
         public enum Actions
@@ -76,7 +78,7 @@ public class MyInputManager : MonoBehaviour
 				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.STOP_RIGHT));
 		}
 
-		if (t0 > 10)
+		if (t0 > round_time)
             StartNewRound();
         for (int cx = 0; cx < players.Count; cx++)
         {
