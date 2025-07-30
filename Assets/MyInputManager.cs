@@ -6,6 +6,7 @@ public class MyInputManager : MonoBehaviour
 {
     [SerializeField]
     public GameObject playerObject;
+    public GameObject spawn_position;
     public double time_left = 10;
     public double round_time = 10;
     public UnityEvent NewRoundEvent;
@@ -37,8 +38,12 @@ public class MyInputManager : MonoBehaviour
         StartNewRound();
     }
     double round_start = 0;
-
-    public void StartNewRound()
+	public void ResetPlayers()
+	{
+        inputs.Clear();
+        StartNewRound();
+	}
+	public void StartNewRound()
     {
         round_start = Time.time;
         time_left = round_time;
@@ -49,6 +54,7 @@ public class MyInputManager : MonoBehaviour
         for (int cx = 0; cx < inputs.Count; cx++)
         {
             MyInputUser player = GameObject.Instantiate(playerObject).GetComponent<MyInputUser>();
+            player.gameObject.transform.position = spawn_position.transform.position;
 
             player.player_id = cx;
 			players.Add(player);
