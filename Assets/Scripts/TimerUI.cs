@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TimerUI : MonoBehaviour
 {
+    public GameObject pos_ref;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,19 +17,35 @@ public class TimerUI : MonoBehaviour
 
         Camera cam = GetComponent<Camera>();
 
-        Vector3 pos = cam.ScreenToWorldPoint(new Vector3(-0.5f, 0.5f, 0));
+        Vector3 pos = pos_ref.transform.position;
 
         LineRenderer tr = GetComponent<LineRenderer>();
-        tr.positionCount = (int)(100 * p);
         Vector3[] positions = new Vector3[100];
-        for (int cx = 0; cx < 100 * p; cx++)
+        if (p < 0.5)
         {
-            float t = 2.0f * 3.141592653f * (float)cx / 100.0f;
-            positions[cx].x = 2.5f + 2.0f * Mathf.Sin(t);
-            positions[cx].y = Mathf.Sin(2.0f * t) + 1.5f;
-            positions[cx] += pos;
+            tr.positionCount = (int)(200 * p);
+            for (int cx = 0; cx < 200 * p; cx++)
+            {
+                float t = 2.0f * 3.141592653f * (float)cx / 100.0f;
+                positions[cx].x = 2.0f * Mathf.Sin(t);
+                positions[cx].y = 0.5f * Mathf.Sin(2.0f * t);
+                positions[cx].z = 1;
+                positions[cx] += pos;
+            }
         }
-        tr.SetPositions(positions);
+        else
+        {
+            tr.positionCount = (int)(200 * (1 - p));
+            for (int cx = 0; cx < 200 * (1 - p); cx++)
+            {
+                float t = 2.0f * 3.141592653f * (float)(cx + 200 * p) / 100.0f;
+                positions[cx].x = 2.0f * Mathf.Sin(t);
+                positions[cx].y = 0.5f * Mathf.Sin(2.0f * t);
+                positions[cx].z = 1;
+                positions[cx] += pos;
+            }
+        }
+		tr.SetPositions(positions);
 
     }
 }
