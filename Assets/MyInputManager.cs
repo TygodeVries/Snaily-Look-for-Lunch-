@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class MyInputManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class MyInputManager : MonoBehaviour
     public GameObject playerObject;
     public double time_left = 10;
     public double round_time = 10;
+    public UnityEvent NewRoundEvent;
     class MyInputs
     {
         public enum Actions
@@ -51,6 +53,7 @@ public class MyInputManager : MonoBehaviour
             player.player_id = cx;
 			players.Add(player);
         }
+        NewRoundEvent.Invoke();
     }
     KeyCode[] left = { KeyCode.A, KeyCode.LeftArrow };
     KeyCode[] right = { KeyCode.D, KeyCode.E, KeyCode.RightArrow };
