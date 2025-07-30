@@ -16,7 +16,6 @@ public class Gate : MonoBehaviour
         openPosistion = transform.position + new Vector3(0, OpenLocationOffset);
     }
 
-    public UnityEvent testEvent;
 
     private void OnDrawGizmosSelected()
     {
