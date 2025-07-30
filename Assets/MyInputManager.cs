@@ -49,15 +49,34 @@ public class MyInputManager : MonoBehaviour
 			players.Add(player);
         }
     }
+    KeyCode[] left = { KeyCode.A, KeyCode.LeftArrow };
+    KeyCode[] right = { KeyCode.D, KeyCode.E, KeyCode.RightArrow };
+    KeyCode[] jump = { KeyCode.Space, KeyCode.W, KeyCode.Comma, KeyCode.UpArrow };
     // Update is called once per frame
     void Update()
     {
 		double t0 = Time.time - round_start;
-		if (Input.GetKeyDown(KeyCode.Space))
+		foreach (KeyCode l in jump)
+			if (Input.GetKeyDown(l))
         {
             inputs[0].Add(new MyInputs(t0, MyInputs.Actions.JUMP));
         }
-        if (t0 > 10)
+        foreach (KeyCode l in left)
+        {
+            if (Input.GetKeyDown(l))
+                inputs[0].Add(new MyInputs(t0, MyInputs.Actions.START_LEFT));
+            if (Input.GetKeyUp(l))
+                inputs[0].Add(new MyInputs(t0, MyInputs.Actions.STOP_LEFT));
+        }
+		foreach (KeyCode l in right)
+		{
+			if (Input.GetKeyDown(l))
+				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.START_RIGHT));
+			if (Input.GetKeyUp(l))
+				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.STOP_RIGHT));
+		}
+
+		if (t0 > 10)
             StartNewRound();
         for (int cx = 0; cx < players.Count; cx++)
         {
