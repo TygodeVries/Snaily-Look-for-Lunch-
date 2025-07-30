@@ -49,6 +49,10 @@ public class MyInputUser : MonoBehaviour
         {
             playerBody.linearVelocityX = 3;
         }
+        else
+        {
+            playerBody.linearVelocityX = 0;
+        }
     }
 
     private bool CurrentlyOnGround()
