@@ -4,13 +4,17 @@ public class MyInputUser : MonoBehaviour
 {
     public int player_id;
     private Rigidbody2D playerBody;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private float JumpForce = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerBody = GetComponent<Rigidbody2D>(); 
+        animator = GetComponentInChildren<Animator>();
+        playerBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private float timeSinceGround = 100;
@@ -21,9 +25,11 @@ public class MyInputUser : MonoBehaviour
         if(CurrentlyOnGround())
         {
             timeSinceGround = 0;
+            animator.SetBool("OnGround", true);
         }
         else
         {
+            animator.SetBool("OnGround", false);
             timeSinceGround += Time.deltaTime;
         }
 
@@ -39,18 +45,24 @@ public class MyInputUser : MonoBehaviour
 
         if (movingRight && movingLeft)
         {
+            animator.SetBool("Walking", false);
             playerBody.linearVelocityX = 0;
         }
         else if (movingLeft)
         {
+            spriteRenderer.flipX = true;
+            animator.SetBool("Walking", true);
             playerBody.linearVelocityX = -3;
         }
         else if (movingRight)
         {
+            spriteRenderer.flipX = false;
+            animator.SetBool("Walking", true);
             playerBody.linearVelocityX = 3;
         }
         else
         {
+            animator.SetBool("Walking", false);
             playerBody.linearVelocityX = 0;
         }
     }
