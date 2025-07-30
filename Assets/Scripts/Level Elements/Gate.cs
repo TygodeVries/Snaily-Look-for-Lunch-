@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem.LowLevel;
 
 public class Gate : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class Gate : MonoBehaviour
         closePosistion = transform.position;
         openPosistion = transform.position + new Vector3(0, OpenLocationOffset);
     }
+
+    public UnityEvent testEvent;
 
     private void OnDrawGizmosSelected()
     {
