@@ -14,8 +14,6 @@ public class Strech : MonoBehaviour
     {
         Vector2 stretch = new Vector2(1, 1);
 
-        if(body.linearVelocityY < 0)
-            stretch.x = 1 - Mathf.Clamp(Mathf.Abs(body.linearVelocityY) / 20, 0f, 0.7f);
         
 
         transform.GetChild(0).localScale = stretch;

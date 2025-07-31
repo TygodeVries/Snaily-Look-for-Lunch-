@@ -32,7 +32,7 @@ public class AllowInteract : MonoBehaviour
         if (closes > 1)
         {
             Debug.Log("I may be touched now :D");
-            GetComponent<Rigidbody2D>().excludeLayers = 0;
+            gameObject.layer = 0;
             isAllowed = true;
         }
 
