@@ -13414,7 +13414,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7, y: 4.5, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1191259042}
@@ -13434,7 +13434,7 @@ MonoBehaviour:
   ResetEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1191259038}
         m_TargetAssemblyTypeName: MyInputManager, Assembly-CSharp
         m_MethodName: ResetPlayers
         m_Mode: 1
@@ -13861,10 +13861,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.54740834
+    x: 1.1858407
     y: 0
-    width: 0.7663998
-    height: 0.76629215
+    width: 0.05618767
+    height: 0.056179777
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

@@ -13645,10 +13645,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.5258427
-    width: 0.32996207
-    height: 0.32991573
+    x: 0.54740834
+    y: 0
+    width: 0.7663998
+    height: 0.76629215
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -13720,7 +13720,7 @@ MonoBehaviour:
   ResetEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1669448012}
         m_TargetAssemblyTypeName: MyInputManager, Assembly-CSharp
         m_MethodName: ResetPlayers
         m_Mode: 1
@@ -13833,12 +13833,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7, y: 4.5, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1669448016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &2103379063
+--- !u!43 &2146281121
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14072,6 +14072,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1669448016}
   - {fileID: 114331913}
   - {fileID: 861940110}
   - {fileID: 1043658671}
@@ -14082,4 +14083,3 @@ SceneRoots:
   - {fileID: 155526566}
   - {fileID: 932855713}
   - {fileID: 5238180398406435854}
-  - {fileID: 1669448016}
