@@ -3,19 +3,20 @@ using UnityEngine;
 public class TimerUI : MonoBehaviour
 {
     public GameObject pos_ref;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    MyInputManager mip;
+    Camera cam;
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
     {
-        
-    }
+		mip = GetComponentInParent<MyInputManager>();
+		cam = GetComponent<Camera>();
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
-        MyInputManager mip = GetComponentInParent<MyInputManager>();
         float p = (float)(mip.time_left / mip.round_time);
 
-        Camera cam = GetComponent<Camera>();
 
         Vector3 pos = pos_ref.transform.position;
 
