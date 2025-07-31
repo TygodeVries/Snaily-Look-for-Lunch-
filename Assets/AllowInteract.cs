@@ -32,7 +32,7 @@ public class AllowInteract : MonoBehaviour
         if (closes > 1)
         {
             Debug.Log("I may be touched now :D");
-            gameObject.layer = 0;
+            
             isAllowed = true;
         }
 
