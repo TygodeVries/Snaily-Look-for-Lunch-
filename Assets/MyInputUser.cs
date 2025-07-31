@@ -22,7 +22,7 @@ public class MyInputUser : MonoBehaviour
 
     private void Update()
     {
-        if(CurrentlyOnGround())
+        if (CurrentlyOnGround())
         {
             timeSinceGround = 0;
             animator.SetBool("OnGround", true);
@@ -33,7 +33,7 @@ public class MyInputUser : MonoBehaviour
             timeSinceGround += Time.deltaTime;
         }
 
-        if(timeSinceJumpInput < 0.05f && timeSinceGround < 0.05f)
+        if (timeSinceJumpInput < 0.05f && timeSinceGround < 0.05f)
         {
             timeSinceJumpInput = 10; // Set to a big number
             playerBody.linearVelocityY = JumpForce;
@@ -94,5 +94,11 @@ public class MyInputUser : MonoBehaviour
     public void StopLeft()
     {
         movingLeft = false;
+    }
+    public void StartDance()
+    {
+    }
+    public void StopDance()
+    {
     }
 }
