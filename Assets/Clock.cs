@@ -17,9 +17,8 @@ public class Clock : MonoBehaviour
 
         if (timerUI.time_left > 0)
         {
-            float amount = -((timerUI.time_left / 10f) * 2f) + 0.5f;
-            Vector2 rot = new Vector2(Mathf.Cos(amount * Mathf.PI) * size, Mathf.Sin(amount * Mathf.PI) * size);
-            transform.GetChild(0).localPosition = rot;
+            float amount = Mathf.PI * (timerUI.time_left / timerUI.round_time);
+            transform.GetChild(0).rotation = new Quaternion(0, 0, Mathf.Sin(amount), Mathf.Cos(amount));
         }
     }
 }

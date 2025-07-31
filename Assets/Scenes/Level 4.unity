@@ -398,6 +398,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2562037017161083686, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: 5184afb1b9e5f6d4a83a00e089a69d32, type: 3}
     - target: {fileID: 4996654930189729688, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
       propertyPath: m_Name
       value: Timer
@@ -439,6 +443,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8539384366480616099, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962426933251072961, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962426933251072961, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962426933251072961, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962426933251072961, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962426933251072961, guid: a710f4abb44e91349847de6c0dbaeb7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -13926,9 +13950,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 0.9981203
+    y: 0.13483146
+    width: 0.8091024
+    height: 0.80898875
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -14367,7 +14391,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6c4f9298cdd234e86b13f4530276f4, type: 3}
---- !u!43 &1730366400
+--- !u!43 &1883491738
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
