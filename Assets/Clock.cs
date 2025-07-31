@@ -15,8 +15,11 @@ public class Clock : MonoBehaviour
     {
         float size = 0.35f;
 
-        float amount = ((timerUI.time_left / 10f) * 2f) + 0.5f;
-        Vector2 rot = new Vector2(Mathf.Cos(amount * Mathf.PI) * size, Mathf.Sin(amount * Mathf.PI) * size);
-        transform.GetChild(0).localPosition = rot;
+        if (timerUI.time_left > 0)
+        {
+            float amount = -((timerUI.time_left / 10f) * 2f) + 0.5f;
+            Vector2 rot = new Vector2(Mathf.Cos(amount * Mathf.PI) * size, Mathf.Sin(amount * Mathf.PI) * size);
+            transform.GetChild(0).localPosition = rot;
+        }
     }
 }

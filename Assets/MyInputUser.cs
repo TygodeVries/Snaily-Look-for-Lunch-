@@ -20,6 +20,7 @@ public class MyInputUser : MonoBehaviour
         public Vector3 position;
         public bool flipX;
         public bool onGround;
+        public bool lifting;
     };
     public state SaveCurrentState()
     {
@@ -28,8 +29,8 @@ public class MyInputUser : MonoBehaviour
         s.position = transform.position;
         s.flipX = spriteRenderer.flipX;
         s.onGround = animator.GetBool("OnGround");
-
-        return s;
+        s.lifting = animator.GetBool("Platform");
+		return s;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,8 +50,10 @@ public class MyInputUser : MonoBehaviour
         transform.position = state.position;
         animator.SetBool("OnGround", state.onGround);
         spriteRenderer.flipX = state.flipX;
-    }
-    private void Update()
+		animator.SetBool("Platform", state.lifting);
+
+	}
+	private void Update()
     {
         if (!rewinding)
         {
