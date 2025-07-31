@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class PlayerDetector : MonoBehaviour
 {
+    public Sprite defaultSprite;
+    public Sprite pressedSprite;
     int player_count = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public UnityEvent playerEnter;
@@ -13,16 +15,19 @@ public class PlayerDetector : MonoBehaviour
         
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
         if (null != collision.gameObject.GetComponent<MyInputUser>())
         {
             if (0 == player_count)
-			    playerEnter.Invoke();
+            {
+                GetComponent<SpriteRenderer>().sprite = pressedSprite;
+                playerEnter.Invoke();
+            }
 			player_count++;
         }
 	}
-	private void OnCollisionExit2D(Collision2D collision)
+	private void OnTriggerExit2D(Collider2D collision)
 	{
         if (null != collision.gameObject.GetComponent<MyInputUser>())
         {
@@ -30,7 +35,10 @@ public class PlayerDetector : MonoBehaviour
             {
                 player_count--;
                 if (0 == player_count)
+                {
+                    GetComponent<SpriteRenderer>().sprite = defaultSprite;
                     playerExit.Invoke();
+                }
             }
         }
 	}
