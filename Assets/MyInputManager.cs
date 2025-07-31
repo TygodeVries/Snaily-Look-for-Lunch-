@@ -1,7 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class MyInputManager : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class MyInputManager : MonoBehaviour
     public GameObject spawn_position;
     public float time_left = 10;
     public float round_time = 10;
-    public UnityEvent NewRoundEvent;
+    public UnityEvent<float> NewRoundEvent;
     class MyInputs
     {
         public enum Actions
@@ -35,12 +35,17 @@ public class MyInputManager : MonoBehaviour
     public List<MyInputUser> players;
     private List<List<MyInputUser.state>> states;
     private List<List<MyInputs>> inputs;
+    private List<Trackable> trackables = new List<Trackable>();
     void Start()
     {
-        players = new List<MyInputUser>();
-        states = new List<List<MyInputUser.state>>();
-        inputs = new List<List<MyInputs>>();
-        StartNewRound();
+    	players = new List<MyInputUser>();
+    	states = new List<List<MyInputUser.state>>();
+    	inputs = new List<List<MyInputs>>();
+    	StartNewRound();
+    }
+    public void RegisterTrackable(Trackable t)
+    {
+        trackables.Add(t);
     }
     float round_start = 0;
 
@@ -75,6 +80,8 @@ public class MyInputManager : MonoBehaviour
                     states[cx].RemoveAt(states[cx].Count - 1);
                 }
             }
+            foreach (Trackable t in trackables)
+                t.RewindTo(time);
 			yield return new WaitForSeconds(0.01f);
 		}
         reset_coroutine = null;
@@ -108,7 +115,7 @@ public class MyInputManager : MonoBehaviour
 			players.Add(player);
             states.Add(new List<MyInputUser.state>());
         }
-        NewRoundEvent.Invoke();
+        NewRoundEvent.Invoke(round_start);
     }
     KeyCode[] left = { KeyCode.A, KeyCode.LeftArrow };
     KeyCode[] right = { KeyCode.D, KeyCode.E, KeyCode.RightArrow };
