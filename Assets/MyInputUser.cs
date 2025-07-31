@@ -68,6 +68,7 @@ public class MyInputUser : MonoBehaviour
             {
                 timeSinceJumpInput = 10; // Set to a big number
                 playerBody.linearVelocityY = JumpForce;
+                GetComponentInChildren<ParticleSystem>().Play();
             }
 
             timeSinceJumpInput += Time.deltaTime;
@@ -102,7 +103,7 @@ public class MyInputUser : MonoBehaviour
 
     private bool CurrentlyOnGround()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1, 0.01f), 0, Vector3.down, 0.5f);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.8f, 0.01f), 0, Vector3.down, 0.5f);
         return hit.collider != null;
     }
     
