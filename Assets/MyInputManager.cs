@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using System.Linq;
 
 public class MyInputManager : MonoBehaviour
 {
     [SerializeField]
     public GameObject playerObject;
     public GameObject spawn_position;
-    public double time_left = 10;
-    public double round_time = 10;
+    public float time_left = 10;
+    public float round_time = 10;
     public UnityEvent NewRoundEvent;
     class MyInputs
     {
@@ -32,14 +33,16 @@ public class MyInputManager : MonoBehaviour
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<MyInputUser> players;
+    private List<List<MyInputUser.state>> states;
     private List<List<MyInputs>> inputs;
     void Start()
     {
         players = new List<MyInputUser>();
+        states = new List<List<MyInputUser.state>>();
         inputs = new List<List<MyInputs>>();
         StartNewRound();
     }
-    double round_start = 0;
+    float round_start = 0;
 
     private System.Collections.IEnumerator reset_coroutine;
     public System.Collections.IEnumerator ResetPlayersCo()
@@ -58,12 +61,35 @@ public class MyInputManager : MonoBehaviour
         inputs.Clear();
         StartNewRound();
     }
-
+    public System.Collections.IEnumerator ResetRoundCo()
+    {
+        float time = Time.time - round_start;
+        while (time > 0)
+        {
+            time -= 0.1f;
+            for (int cx = 0; cx < players.Count; cx++)
+            {
+                while (states[cx].Count > 0 && states[cx].Last().time > time)
+                {
+                    players[cx].SetState(states[cx].Last());
+                    states[cx].RemoveAt(states[cx].Count - 1);
+                }
+            }
+			yield return new WaitForSeconds(0.01f);
+		}
+        reset_coroutine = null;
+        StartNewRound();
+	}
 	public void ResetPlayers()
 	{
         reset_coroutine = ResetPlayersCo();
         StartCoroutine(reset_coroutine);
 	}
+    public void EndCurrentRound()
+    {
+        reset_coroutine = ResetRoundCo();
+        StartCoroutine(reset_coroutine);
+    }
 	public void StartNewRound()
     {
         round_start = Time.time;
@@ -71,6 +97,7 @@ public class MyInputManager : MonoBehaviour
         foreach (MyInputUser p in players)
             GameObject.Destroy(p.gameObject);
         players.Clear();
+        states.Clear();
         inputs.Insert(0, new List<MyInputs>());
         for (int cx = 0; cx < inputs.Count; cx++)
         {
@@ -79,6 +106,7 @@ public class MyInputManager : MonoBehaviour
 
             player.player_id = cx;
 			players.Add(player);
+            states.Add(new List<MyInputUser.state>());
         }
         NewRoundEvent.Invoke();
     }
@@ -95,7 +123,7 @@ public class MyInputManager : MonoBehaviour
 			return;
         }
 
-		double t0 = Time.time - round_start;
+		float t0 = Time.time - round_start;
 		foreach (KeyCode l in jump)
 			if (Input.GetKeyDown(l))
         {
@@ -124,7 +152,7 @@ public class MyInputManager : MonoBehaviour
 		}
 		time_left = round_time - t0;
 		if (t0 > round_time)
-            StartNewRound();
+            EndCurrentRound();
         for (int cx = 0; cx < players.Count; cx++)
         {
             for (int cy = 0; cy < inputs[cx].Count; cy++)
@@ -147,6 +175,7 @@ public class MyInputManager : MonoBehaviour
 						players[cx].StopDance();
 				}
 			}
+            states[cx].Add(players[cx].SaveCurrentState());
         }
     }
 }

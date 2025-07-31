@@ -45,6 +45,7 @@ public class MyInputUser : MonoBehaviour
     public void SetState(state state)
     {
         rewinding = true;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         transform.position = state.position;
         animator.SetBool("OnGround", state.onGround);
         spriteRenderer.flipX = state.flipX;
