@@ -18,7 +18,9 @@ public class MyInputManager : MonoBehaviour
             START_RIGHT,
             STOP_RIGHT,
             START_LEFT,
-            STOP_LEFT
+            STOP_LEFT,
+            START_DANCE,
+            STOP_DANCE
         }
         public MyInputs(double t, Actions i)
         {
@@ -64,6 +66,7 @@ public class MyInputManager : MonoBehaviour
     KeyCode[] left = { KeyCode.A, KeyCode.LeftArrow };
     KeyCode[] right = { KeyCode.D, KeyCode.E, KeyCode.RightArrow };
     KeyCode[] jump = { KeyCode.Space, KeyCode.W, KeyCode.Comma, KeyCode.UpArrow };
+    KeyCode[] dance = { KeyCode.S, KeyCode.O, KeyCode.DownArrow };
     // Update is called once per frame
     void Update()
     {
@@ -87,8 +90,14 @@ public class MyInputManager : MonoBehaviour
 			if (Input.GetKeyUp(l))
 				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.STOP_RIGHT));
 		}
-
-        time_left = round_time - t0;
+        foreach (KeyCode l in dance)
+        {
+			if (Input.GetKeyDown(l))
+				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.START_DANCE));
+			if (Input.GetKeyUp(l))
+				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.STOP_DANCE));
+		}
+		time_left = round_time - t0;
 		if (t0 > round_time)
             StartNewRound();
         for (int cx = 0; cx < players.Count; cx++)
@@ -107,8 +116,12 @@ public class MyInputManager : MonoBehaviour
                         players[cx].StartLeft();
                     if (inputs[cx][cy].input == MyInputs.Actions.STOP_LEFT)
                         players[cx].StopLeft();
-                }
-            }
+					if (inputs[cx][cy].input == MyInputs.Actions.START_DANCE)
+						players[cx].StartDance();
+					if (inputs[cx][cy].input == MyInputs.Actions.STOP_DANCE)
+						players[cx].StopDance();
+				}
+			}
         }
     }
 }
