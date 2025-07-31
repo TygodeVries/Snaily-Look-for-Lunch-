@@ -40,10 +40,29 @@ public class MyInputManager : MonoBehaviour
         StartNewRound();
     }
     double round_start = 0;
-	public void ResetPlayers()
-	{
+
+    private System.Collections.IEnumerator reset_coroutine;
+    public System.Collections.IEnumerator ResetPlayersCo()
+    {
+        while (players.Count > 0)
+        {
+            for (float scale = 1; scale > 0; scale -= 0.1f)
+            {
+                players[0].transform.localScale = new Vector3(scale, 1);
+				yield return new WaitForSeconds(.01f);
+			}
+			GameObject.Destroy(players[0].gameObject);
+			players.RemoveAt(0);
+        }
+        reset_coroutine = null;
         inputs.Clear();
         StartNewRound();
+    }
+
+	public void ResetPlayers()
+	{
+        reset_coroutine = ResetPlayersCo();
+        StartCoroutine(reset_coroutine);
 	}
 	public void StartNewRound()
     {
@@ -70,6 +89,12 @@ public class MyInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (reset_coroutine != null)
+        {
+            Debug.Log("Skip input");
+			return;
+        }
+
 		double t0 = Time.time - round_start;
 		foreach (KeyCode l in jump)
 			if (Input.GetKeyDown(l))
