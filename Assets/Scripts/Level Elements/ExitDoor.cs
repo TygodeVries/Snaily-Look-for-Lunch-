@@ -11,6 +11,7 @@ public class ExitDoor : MonoBehaviour
 
     public void GoToNextLevel()
     {
-        SceneManager.LoadScene(nextLevelName);
+        Debug.Log("Next Level!");
+        StartCoroutine(FindAnyObjectByType<Transition>().ExitAndLeave(nextLevelName)); 
     }
 }

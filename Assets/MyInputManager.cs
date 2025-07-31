@@ -62,6 +62,8 @@ public class MyInputManager : MonoBehaviour
 			GameObject.Destroy(players[0].gameObject);
 			players.RemoveAt(0);
         }
+
+        
         reset_coroutine = null;
         inputs.Clear();
         StartNewRound();
