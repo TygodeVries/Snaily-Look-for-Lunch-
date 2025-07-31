@@ -10,7 +10,7 @@ public class MyInputUser : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
-    private float JumpForce = 5;
+    private float JumpForce = 7.5f;
 
     private float startTime;
     bool rewinding = false;
@@ -54,6 +54,9 @@ public class MyInputUser : MonoBehaviour
     {
         if (!rewinding)
         {
+            if (platformMode)
+                return;
+
             if (CurrentlyOnGround())
             {
                 timeSinceGround = 0;
@@ -107,6 +110,8 @@ public class MyInputUser : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.8f, 0.01f), 0, Vector3.down, 0.5f);
         return hit.collider != null;
     }
+
+    bool platformMode;
     
     public void Jump()
     {
@@ -134,8 +139,16 @@ public class MyInputUser : MonoBehaviour
     }
     public void StartDance()
     {
+        gameObject.layer = 0;
+        platformMode = true;
+        animator.SetBool("Platform", true);
+        GetComponent<Rigidbody2D>().excludeLayers = LayerMask.GetMask("Nothing");
     }
     public void StopDance()
     {
+        gameObject.layer = LayerMask.NameToLayer("Worm");
+        GetComponent<Rigidbody2D>().excludeLayers = LayerMask.GetMask("Worm");
+        platformMode = false;
+        animator.SetBool("Platform", false);
     }
 }
