@@ -13,7 +13,8 @@ public class ResetButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+            ResetEvent.Invoke();
     }
 
 	private void OnMouseDown()
