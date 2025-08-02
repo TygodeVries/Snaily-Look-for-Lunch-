@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: Level 2
+  TransitionFocus: {fileID: 557626611340977170}
 --- !u!61 &1987848650662794222
 BoxCollider2D:
   m_ObjectHideFlags: 0
