@@ -115,7 +115,7 @@ public class MyInputUser : MonoBehaviour
 
     private bool CurrentlyOnGround()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.8f, 0.01f), 0, Vector3.down, 0.5f);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.8f, 0.01f), 0, Vector3.down, 0.5f, LayerMask.NameToLayer("Worm") | LayerMask.NameToLayer("Ignore Raycast"));
         return hit.collider != null;
     }
 
