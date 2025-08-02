@@ -104,6 +104,7 @@ public class MyInputManager : MonoBehaviour
     }
 	public void StartNewRound()
     {
+        goal_reached = false;
         round_start = Time.time;
         time_left = round_time;
         foreach (MyInputUser p in players)
@@ -127,6 +128,12 @@ public class MyInputManager : MonoBehaviour
     KeyCode[] jump = { KeyCode.Space, KeyCode.W, KeyCode.Comma, KeyCode.UpArrow };
     KeyCode[] dance = { KeyCode.S, KeyCode.O, KeyCode.DownArrow };
     // Update is called once per frame
+    bool goal_reached = false;
+    public void GoalReached()
+    {
+        goal_reached = true;
+    }
+    
     void Update()
     {
         if (reset_coroutine != null)
@@ -163,7 +170,7 @@ public class MyInputManager : MonoBehaviour
 				inputs[0].Add(new MyInputs(t0, MyInputs.Actions.STOP_DANCE));
 		}
 		time_left = round_time - t0;
-		if (t0 > round_time)
+		if (t0 > round_time && !goal_reached)
             EndCurrentRound();
         for (int cx = 0; cx < players.Count; cx++)
         {

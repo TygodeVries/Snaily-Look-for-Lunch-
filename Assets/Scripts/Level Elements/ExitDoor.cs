@@ -7,6 +7,7 @@ public class ExitDoor : MonoBehaviour
     [SerializeField] private string nextLevelName;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        FindAnyObjectByType<MyInputManager>().GoalReached();
         StartCoroutine(GoToNextLevel());
     }
 
