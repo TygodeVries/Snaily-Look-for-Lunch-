@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ResetHider : MonoBehaviour
 {
+    public int PlayerCountToShowHint = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -10,7 +11,7 @@ public class ResetHider : MonoBehaviour
 	}
 	void NewRound(float start_time, int player_count)
     {
-        GetComponent<SpriteRenderer>().enabled = (player_count > 5);
+        GetComponent<SpriteRenderer>().enabled = (player_count > PlayerCountToShowHint);
     }
     // Update is called once per frame
     void Update()
