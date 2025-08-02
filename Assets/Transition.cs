@@ -9,7 +9,7 @@ public class Transition : MonoBehaviour
     {
         yield return new WaitForSeconds(1.6f);
         ExitDoor exitDoor = FindAnyObjectByType<ExitDoor>();
-        transform.position = exitDoor.transform.position;
+        transform.position = exitDoor.transform.position + new Vector3(-1.318f, 0, 0);
     }
 
     public IEnumerator ExitAndLeave(string nextLevel)
