@@ -53,11 +53,6 @@ public class MyInputUser : MonoBehaviour
         rewinding = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         transform.position = state.position;
-        if (!animator.GetBool("OnGround"))
-        {
-            // Inverse jump
-            audioSource.PlayOneShot(JumpSound);
-        }
         animator.SetBool("OnGround", state.onGround);
         spriteRenderer.flipX = state.flipX;
 		animator.SetBool("Platform", state.lifting);
@@ -86,6 +81,7 @@ public class MyInputUser : MonoBehaviour
                 timeSinceJumpInput = 10; // Set to a big number
                 playerBody.linearVelocityY = JumpForce;
                 GetComponentInChildren<ParticleSystem>().Play();
+                audioSource.pitch = Random.Range(0.9f, 1.111f);
                 audioSource.PlayOneShot(JumpSound);
 
             }
