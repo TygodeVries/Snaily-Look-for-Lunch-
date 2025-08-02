@@ -10,7 +10,7 @@ public class MyInputManager : MonoBehaviour
     public GameObject spawn_position;
     public float time_left = 10;
     public float round_time = 10;
-    public UnityEvent<float> NewRoundEvent;
+    public UnityEvent<float, int> NewRoundEvent;
     public UnityEvent StartRewind;
     class MyInputs
     {
@@ -121,7 +121,7 @@ public class MyInputManager : MonoBehaviour
 			players.Add(player);
             states.Add(new List<MyInputUser.state>());
         }
-        NewRoundEvent.Invoke(round_start);
+        NewRoundEvent.Invoke(round_start, inputs.Count);
     }
     KeyCode[] left = { KeyCode.A, KeyCode.LeftArrow };
     KeyCode[] right = { KeyCode.D, KeyCode.E, KeyCode.RightArrow };

@@ -28,7 +28,7 @@ public class Trackable : MonoBehaviour
         manager.NewRoundEvent.AddListener(this.NewRound);
         manager.RegisterTrackable(this);
     }
-    public void NewRound(float start_time)
+    public void NewRound(float start_time, int player_count)
     { // To make sure it's absolutely at the right place
         transform.position = start_position;
         transform.rotation = start_rotation;
