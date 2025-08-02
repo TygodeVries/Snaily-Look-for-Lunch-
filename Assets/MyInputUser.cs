@@ -62,9 +62,6 @@ public class MyInputUser : MonoBehaviour
     {
         if (!rewinding)
         {
-            if (platformMode)
-                return;
-
             if (CurrentlyOnGround())
             {
                 timeSinceGround = 0;
@@ -88,7 +85,7 @@ public class MyInputUser : MonoBehaviour
 
             timeSinceJumpInput += Time.deltaTime;
 
-            if (movingRight && movingLeft)
+            if ((movingRight && movingLeft)||platformMode)
             {
                 animator.SetBool("Walking", false);
                 playerBody.linearVelocityX = 0;
