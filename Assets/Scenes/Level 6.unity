@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885911453719348860, guid: 0345d02b516f1e244a808ce56f6010bc, type: 3}
       propertyPath: nextLevelName
-      value: Menu
+      value: Level 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -513,7 +513,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2513962399132774881, guid: d2f8127486d48bd4987a6e0d2b6d4f0a, type: 3}
-  m_Color: {r: 0.7924528, g: 0.7887148, b: 0.7887148, a: 1}
+  m_Color: {r: 0.29276434, g: 0.4056604, b: 0.29841048, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -684,7 +684,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3002912214514422847, guid: de96fc8a9bd7bb5478e4210ce40c7076, type: 3}
-  m_Color: {r: 0.7924528, g: 0.7887148, b: 0.7887148, a: 1}
+  m_Color: {r: 0.29276434, g: 0.4056604, b: 0.29841048, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -771,7 +771,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2513962399132774881, guid: d2f8127486d48bd4987a6e0d2b6d4f0a, type: 3}
-  m_Color: {r: 0.7924528, g: 0.7887148, b: 0.7887148, a: 1}
+  m_Color: {r: 0.29276434, g: 0.4056604, b: 0.29841048, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12887,7 +12887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0495283
+      value: 0.050251257
       objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -12895,7 +12895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8994694
+      value: 0.9002827
       objectReference: {fileID: 0}
     - target: {fileID: 4399762820055269950, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13196,7 +13196,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3002912214514422847, guid: de96fc8a9bd7bb5478e4210ce40c7076, type: 3}
-  m_Color: {r: 0.7924528, g: 0.7887148, b: 0.7887148, a: 1}
+  m_Color: {r: 0.29276434, g: 0.4056604, b: 0.29841048, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13389,7 +13389,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2513962399132774881, guid: d2f8127486d48bd4987a6e0d2b6d4f0a, type: 3}
-  m_Color: {r: 0.7924528, g: 0.7887148, b: 0.7887148, a: 1}
+  m_Color: {r: 0.29276434, g: 0.4056604, b: 0.29841048, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
