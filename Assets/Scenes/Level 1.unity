@@ -444,6 +444,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &395348077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575856443429200541, guid: f568ef9846c0ee1459fe651e65010054, type: 3}
+  m_PrefabInstance: {fileID: 1629484410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &403938256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,7 +2782,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3366,16 +3371,16 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300042, guid: 9e6ee06f129899dd3b7f62ca637d1cf2, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300022, guid: 9e6ee06f129899dd3b7f62ca637d1cf2, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 21300014, guid: 9e6ee06f129899dd3b7f62ca637d1cf2, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300042, guid: 9e6ee06f129899dd3b7f62ca637d1cf2, type: 3}
   - m_RefCount: 19
     m_Data: {fileID: 21300018, guid: 9e6ee06f129899dd3b7f62ca637d1cf2, type: 3}
   - m_RefCount: 1
@@ -3540,7 +3545,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3568,8 +3573,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055c16311b7b60c48b3685c3bb7a3c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkInstr: {fileID: 0}
-  jumpInstr: {fileID: 0}
+  walkInstr: {fileID: 1587137570}
+  jumpInstr: {fileID: 395348077}
 --- !u!4 &901274635
 Transform:
   m_ObjectHideFlags: 0
@@ -3757,6 +3762,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1587137570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575856443429200541, guid: f568ef9846c0ee1459fe651e65010054, type: 3}
+  m_PrefabInstance: {fileID: 676860292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1629484410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4063,6 +4073,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0.0495283
