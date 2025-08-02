@@ -6,10 +6,14 @@ using Unity.VisualScripting;
 public class MyInputUser : MonoBehaviour
 {
     public int player_id;
+
+    public AudioClip JumpSound;
+
     private Rigidbody2D playerBody;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    private AudioSource audioSource;
     private float JumpForce = 7.5f;
 
     private float startTime;
@@ -39,6 +43,7 @@ public class MyInputUser : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         playerBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     private float timeSinceGround = 100;
@@ -48,6 +53,11 @@ public class MyInputUser : MonoBehaviour
         rewinding = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         transform.position = state.position;
+        if (!animator.GetBool("OnGround"))
+        {
+            // Inverse jump
+            audioSource.PlayOneShot(JumpSound);
+        }
         animator.SetBool("OnGround", state.onGround);
         spriteRenderer.flipX = state.flipX;
 		animator.SetBool("Platform", state.lifting);
@@ -76,6 +86,8 @@ public class MyInputUser : MonoBehaviour
                 timeSinceJumpInput = 10; // Set to a big number
                 playerBody.linearVelocityY = JumpForce;
                 GetComponentInChildren<ParticleSystem>().Play();
+                audioSource.PlayOneShot(JumpSound);
+
             }
 
             timeSinceJumpInput += Time.deltaTime;
