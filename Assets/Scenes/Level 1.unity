@@ -4079,7 +4079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0495283
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -4087,7 +4087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 895235296066597401, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8994694
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4399762820055269950, guid: ee87bba73d647b449b6c57ca830c7c00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4359,6 +4359,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5398027312476892323, guid: b5747ab45e63628408b2cae170a3a300, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497927296615692239, guid: b5747ab45e63628408b2cae170a3a300, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497927296615692239, guid: b5747ab45e63628408b2cae170a3a300, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
