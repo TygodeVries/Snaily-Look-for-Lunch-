@@ -11,6 +11,7 @@ public class MyInputManager : MonoBehaviour
     public float time_left = 10;
     public float round_time = 10;
     public UnityEvent<float> NewRoundEvent;
+    public UnityEvent StartRewind;
     class MyInputs
     {
         public enum Actions
@@ -96,7 +97,9 @@ public class MyInputManager : MonoBehaviour
 	}
     public void EndCurrentRound()
     {
-        reset_coroutine = ResetRoundCo();
+		StartRewind.Invoke();
+
+		reset_coroutine = ResetRoundCo();
         StartCoroutine(reset_coroutine);
     }
 	public void StartNewRound()
