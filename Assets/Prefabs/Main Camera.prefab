@@ -251,10 +251,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.8097345
     y: 0
-    width: 1
-    height: 1
+    width: 1.2114061
+    height: 1.0896226
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 8924063593421826841}
   - component: {fileID: 7372599150115954640}
   - component: {fileID: 8748329259402792269}
+  - component: {fileID: 3844718806448673842}
   m_Layer: 0
   m_Name: ResetText
   m_TagString: Untagged
@@ -594,3 +595,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d802d0247f40b49883bb7b213fedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3844718806448673842
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316564427787264589}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2165a0e1fc55ba240844ce252b68b6db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
