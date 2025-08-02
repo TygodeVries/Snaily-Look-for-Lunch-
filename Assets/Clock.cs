@@ -13,7 +13,7 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float size = 0.35f;
+
 
         if (timerUI.time_left > 0)
         {

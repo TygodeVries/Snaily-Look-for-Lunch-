@@ -6,10 +6,14 @@ using Unity.VisualScripting;
 public class MyInputUser : MonoBehaviour
 {
     public int player_id;
+
+    public AudioClip JumpSound;
+
     private Rigidbody2D playerBody;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    private AudioSource audioSource;
     private float JumpForce = 7.5f;
 
     private float startTime;
@@ -39,6 +43,7 @@ public class MyInputUser : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         playerBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     private float timeSinceGround = 100;
@@ -76,6 +81,9 @@ public class MyInputUser : MonoBehaviour
                 timeSinceJumpInput = 10; // Set to a big number
                 playerBody.linearVelocityY = JumpForce;
                 GetComponentInChildren<ParticleSystem>().Play();
+                audioSource.pitch = Random.Range(0.9f, 1.111f);
+                audioSource.PlayOneShot(JumpSound);
+
             }
 
             timeSinceJumpInput += Time.deltaTime;
