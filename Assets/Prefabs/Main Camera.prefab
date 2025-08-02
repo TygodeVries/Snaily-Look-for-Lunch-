@@ -250,10 +250,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.2853403
-    width: 0.73202616
-    height: 0.65968585
+    x: 0.54740834
+    y: 0
+    width: 0.7663998
+    height: 0.76629215
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -381,7 +381,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5931776927760401410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
